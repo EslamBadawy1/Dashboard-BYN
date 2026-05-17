@@ -8,12 +8,16 @@ import Projects from "./Projects";
 import TableDashboard from "../components/ui/TableDashboard/TableDashboard";
 import FormDashboard from "../components/ui/FormDashboard/FormDashboard";
 import Developers from "./Developers";
+import { useState } from "react";
 function Dashboard() {
+
+  const [draftSection, setDraftSection] = useState("");
+
   return (
     <>
       <Navbar adminName="mohamed" />
       <div className="d-flex">
-        <Sidebar />
+        <Sidebar draftSection={draftSection} />
         <main className="flex-grow-1">
           <Routes>
             <Route path="/" element={<StatusPage />} />
@@ -24,7 +28,8 @@ function Dashboard() {
               {/* First Child */}
               <Route index element={<TableDashboard type="users" />} />
               {/* Second Child */}
-              <Route path="add" element={<FormDashboard />} />
+              <Route path="add" element={<FormDashboard setDraftSection={setDraftSection}
+                section="users" />} />
             </Route>
 
 
@@ -34,7 +39,8 @@ function Dashboard() {
               {/* First Child */}
               <Route index element={<TableDashboard type="projects" />} />
               {/* Second Child */}
-              <Route path="add" element={<FormDashboard />} />
+              <Route path="add" element={<FormDashboard setDraftSection={setDraftSection}
+                section="projects" />} />
             </Route>
 
 
@@ -45,7 +51,8 @@ function Dashboard() {
               {/* First Child */}
               <Route index element={<TableDashboard type="developers" />} />
               {/* Second Child */}
-              <Route path="add" element={<FormDashboard />} />
+              <Route path="add" element={<FormDashboard setDraftSection={setDraftSection}
+                section="developers" />} />
             </Route>
 
 

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Sidebar.module.css";
-function Sidebar() {
+function Sidebar({ draftSection }) {
   const links = [
     { icon: "fa-chart-bar", title: "Status", path: "/" },
     { icon: "fa-users", title: "Users Management", path: "/users" },
@@ -22,7 +22,28 @@ function Sidebar() {
             key={index}
           >
             <i className={`fa-solid ${item.icon} fs-5`}></i>
-            <span className="fs-5">{item.title}</span>
+
+
+
+            <div className="d-flex align-items-center gap-2">
+
+              <span className="fs-5">
+                {item.title}
+              </span>
+
+              {draftSection &&
+                item.path === `/${draftSection}` && (
+                  <span className="badge bg-danger">
+                    Draft
+                  </span>
+                )}
+            </div>
+
+
+
+            {/* 
+            <span className="fs-5">{item.title}</span> */}
+
           </NavLink>
         ))}
       </nav>

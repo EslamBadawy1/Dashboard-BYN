@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom'
 const TableDashboard = ({ type }) => {
-   const titleMap = {
+  const titleMap = {
     users: "User",
     developers: "Developer",
     projects: "Project",
@@ -20,7 +20,7 @@ const TableDashboard = ({ type }) => {
         </Link>
 
       </div>
-      
+
       <table className="table">
         <thead>
           <tr>
